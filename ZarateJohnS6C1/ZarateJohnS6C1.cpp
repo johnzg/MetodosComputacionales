@@ -3,7 +3,7 @@
 using namespace std;
 int main()
 {
-    int n=10000;
+    int n=1000;
     double a=0.0;
     double b=2.0; 
     double deltax=(b-a)/(n-1);
@@ -12,8 +12,6 @@ int main()
     double deltat=(0.25*deltax)/v;
     double upas[n];
     double x[n];
-    x[0]=a;
-    //inicializando
     double foto1[n];
     double foto2[n];
     double foto3[n];
@@ -31,48 +29,52 @@ int main()
         foto1[i]=upas[i];
     }
     double upres[n];
+    upres[0]=1;
+    upres[n-1]=1;
 
-    for(tiempo=0; tiempo <= 40 ; tiempo += deltat)
+    while(tiempo <= 16)
     {
-        tiempo=tiempo+deltat;
-        for (int i=0;i<n;i++)
+        for (int i=1;i<n-1;i++)
         {
-            upres[i]=((v*deltat)/deltax)*(upas[i]-upas[i-1])+upas[i];
+            upres[i]=((v*deltat)/(deltax))*(upas[i]-upas[i-1])+upas[i];
             upas[i]=upres[i];
-            if (tiempo=10)
+        }
+        tiempo=tiempo+deltat;
+
+        if (16.0-deltat<=tiempo && tiempo<16.0)
+        {
+            for(int i=0; i < n;i++)
             {
-               for(int i=0; i < n;i++)
-               {
-                   foto2[i]=upres[i];
-               }
-            }
-            if (tiempo=20)
-            {
-               for(int i=0; i < n;i++)
-               {
-                   foto3[i]=upres[i];
-               }
-            }
-            if (tiempo=30)
-            {
-               for(int i=0; i < n;i++)
-               {
-                   foto4[i]=upres[i];
-               }
-            }
-            if (tiempo=40)
-            {
-               for(int i=0; i < n;i++)
-               {
-                   foto5[i]=upres[i];
-               }
+               foto5[i]=upres[i];
             }
         }
+        if (12.0-deltat*0.5<=tiempo && tiempo<=12.0+deltat*0.5)
+        {
+            for(int i=0; i < n;i++)
+            {
+              foto4[i]=upres[i];
+            }
+        }
+         if (8.0-deltat*0.5<=tiempo && tiempo<=8.0+deltat*0.5)
+        {
+            for(int i=0; i < n;i++)
+            {
+               foto3[i]=upres[i];
+            }
+        }
+        else if (4.0-deltat*0.5<=tiempo && tiempo<=4.0+deltat*0.5)
+        {
+            for(int i=0; i < n;i++)
+            {
+               foto2[i]=upres[i];
+            }
+        }
+        
     }
    
     for (int i=0;i<n;i++)
     {
-        cout<<x[i]<<" "<<foto1[i]<<" "<<foto2[i]<<" "<<foto3[i]<<" "<<foto4[i]<<endl;
+        cout<<x[i]<<" "<<foto1[i]<<" "<<foto2[i]<<" "<<foto3[i]<<" "<<foto4[i]<<" "<<foto5[i]<<endl;
     }
     return 0;
 }
