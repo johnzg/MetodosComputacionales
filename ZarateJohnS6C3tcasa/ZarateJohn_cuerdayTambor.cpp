@@ -379,7 +379,7 @@ void tambor(double lon, double deltax, double deltay, double c)
         {
             for (int k=1;k<m-1;k++)
             {
-                ufut[i][k]=r1*(upres[i+1][k]+upres[i-1][k]- 2*upres[i][k]) + r2*(upas[i][k+1]+upres[i][k-1]- 2*upres[i][k])+2*upres[i][k]-upas[i][k];
+                ufut[i][k]=r1*(upres[i+1][k]+upres[i-1][k]- 2*upres[i][k]) + r2*(upres[i][k+1]+upres[i][k-1]- 2*upres[i][k])+2*upres[i][k]-upas[i][k];
             }
         }
         
