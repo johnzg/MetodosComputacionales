@@ -392,7 +392,7 @@ void tambor(double lon, double deltax, double deltay, double c)
             }
         }        
 
-        if (j==1000)
+        if (j==100)
         {
             for (int i=0;i<n;i++)
             {
@@ -402,7 +402,7 @@ void tambor(double lon, double deltax, double deltay, double c)
                 }
             }
         }
-        if (j==2000)
+        if (j==200)
         {
             for (int i=0;i<n;i++)
             {
@@ -412,7 +412,7 @@ void tambor(double lon, double deltax, double deltay, double c)
                 }
             }
         }
-         if (j==3000)
+         if (j==300)
         {
             for (int i=0;i<n;i++)
             {
@@ -422,7 +422,7 @@ void tambor(double lon, double deltax, double deltay, double c)
                 }
             }
         }
-        if (j==4000)
+        if (j==400)
         {
             for (int i=0;i<n;i++)
             {
