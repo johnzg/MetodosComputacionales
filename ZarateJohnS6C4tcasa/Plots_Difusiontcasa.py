@@ -92,3 +92,51 @@ plt.xlabel("tiempo(s)")
 plt.ylabel("temperatura(celcius)")
 plt.title("temperatura promedio (frontera libre)")
 plt.savefig("temperaturaPromedioFronteraLibre.png")
+
+
+data=np.genfromtxt("difusionperiodicas.dat")
+x=data[:,0]
+y=data[:,1]
+X, Y = np.meshgrid(x, y)
+foto1=data[:,2:103]
+foto2=data[:,103:204]
+foto3=data[:,204:305]
+print(foto3)
+fig = plt.figure()
+ax = plt.axes(projection='3d')
+ax.plot_surface(Y, X, foto1, rstride=1, cstride=1, cmap='viridis', edgecolor='none')
+ax.set_xlabel('x(m)')
+ax.set_ylabel('y(m)')
+ax.set_zlabel('T(Celcius)')
+ax.set_title('frontera periodica t=0')
+plt.savefig("difusionPeriodicas0.png")
+
+fig = plt.figure()
+ax = plt.axes(projection='3d')
+ax.plot_surface(Y, X, foto2, rstride=1, cstride=1, cmap='viridis', edgecolor='none')
+ax.set_xlabel('x(m)')
+ax.set_ylabel('y(m)')
+ax.set_zlabel('T(Celcius)')
+ax.set_title('frontera periodica t=100')
+plt.savefig("difusionPeriodicas100.png")
+
+fig = plt.figure()
+ax = plt.axes(projection='3d')
+ax.plot_surface(Y, X, foto3, rstride=1, cstride=1, cmap='viridis', edgecolor='none')
+ax.set_xlabel('x(m)')
+ax.set_ylabel('y(m)')
+ax.set_zlabel('T(celcius)')
+ax.set_title('frontera periodica t=2500')
+plt.savefig("difusionPeriodicas2500.png")
+
+data=np.genfromtxt("difusionperiodicastprom.dat")
+t=data[:,0]
+temp=data[:,1]
+plt.figure()
+plt.plot(t,temp,color="black")
+plt.xlabel("tiempo(s)")
+plt.ylabel("temperatura(celcius)")
+plt.title("temperatura promedio (frontera periodica)")
+plt.savefig("temperaturaPromedioFronteraPeriodica.png")
+
+
